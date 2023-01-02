@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Palindromes.Logic
+﻿namespace Palindromes.Logic
 {
-    public class WhileProvider : InvalidCharacters, IPalindormeProvider
+    public class WhileProvider : BaseProvider
     {
-        public bool CheckString(string stringToCheck)
+        public override bool CheckString(string stringToCheck)
         {
-            if (String.IsNullOrWhiteSpace(stringToCheck))
-            {
+            if (string.IsNullOrWhiteSpace(stringToCheck))
                 return false;
-            }
 
             var cleanedString = GetCleanedString(stringToCheck.ToLower());
-            int index = cleanedString.Length - 1;
-            int i = 0;
+            var index = cleanedString.Length - 1;
+            var i = 0;
 
             while (i <= index)
             {
@@ -25,7 +19,9 @@ namespace Palindromes.Logic
                     index--;
                 }
                 else
+                {
                     return false;
+                }
             }
 
             return true;

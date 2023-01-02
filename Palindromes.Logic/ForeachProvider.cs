@@ -1,30 +1,22 @@
-﻿using System;
-
-namespace Palindromes.Logic
+﻿namespace Palindromes.Logic
 {
-    public class ForeachProvider : InvalidCharacters, IPalindormeProvider
+    public class ForeachProvider : BaseProvider
     {
-        public bool CheckString(string stringToCheck)
+        public override bool CheckString(string stringToCheck)
         {
             if (string.IsNullOrWhiteSpace(stringToCheck))
-            {
                 return false;
-            }
 
             var cleanedString = GetCleanedString(stringToCheck.ToLower());
 
-            int index = cleanedString.Length - 1;
+            var index = cleanedString.Length - 1;
 
             foreach (var element in cleanedString)
             {
                 if (element == cleanedString[index])
-                {
                     index--;
-                }
                 else
-                {
                     return false;
-                }
             }
 
             return true;

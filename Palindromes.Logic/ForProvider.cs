@@ -1,30 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Palindromes.Logic
+﻿namespace Palindromes.Logic
 {
-    public class ForProvider : InvalidCharacters, IPalindormeProvider
+    public class ForProvider : BaseProvider
     {
-        public bool CheckString(string stringToCheck)
+        public override bool CheckString(string stringToCheck)
         {
             if (string.IsNullOrWhiteSpace(stringToCheck))
-            {
                 return false;
-            }
 
             var cleanedString = GetCleanedString(stringToCheck.ToLower());
-            int index = cleanedString.Length - 1;
+            var index = cleanedString.Length - 1;
 
-            for (int i = 0; i <= index; i++)
-            {
+            for (var i = 0; i <= index; i++)
                 if (cleanedString[i] == cleanedString[index])
-                {
                     index--;
-                }
                 else
                     return false;
-            }
+
             return true;
         }
     }

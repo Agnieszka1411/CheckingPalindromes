@@ -1,24 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace Palindromes.Logic.Tests
 {
-    [TestClass]
     public class DoWhileProviderTests
     {
-        private readonly DoWhileProvider _doWhileProvider = new DoWhileProvider();
+        private readonly BaseProvider _doWhileProvider = new DoWhileProvider();
 
-        [DataRow(null, false)]
-        [DataRow("", false)]
-        [DataRow("bleee", false)]
-        [DataRow("oko", true)]
-        [DataRow("sedes", true)]
-        [DataRow("Kobyła ma mały bok.", true)]
-        [DataRow("kobyła ma mały bok", true)]
-
-        [TestMethod]
+        [Test]
+        [TestCase(null, false)]
+        [TestCase("", false)]
+        [TestCase("bleee", false)]
+        [TestCase("oko", true)]
+        [TestCase("sedes", true)]
+        [TestCase("Kobyła ma mały bok.", true)]
+        [TestCase("kobyła ma mały bok", true)]
         public void CheckString_APalindromeData_ResultTrue(string userInput, bool expectedResult)
         {
-            bool actualResult = _doWhileProvider.CheckString(userInput);
+            var actualResult = _doWhileProvider.CheckString(userInput);
 
             Assert.AreEqual(expectedResult, actualResult);
         }
