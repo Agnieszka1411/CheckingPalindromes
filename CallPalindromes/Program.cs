@@ -1,5 +1,5 @@
-﻿using System;
-using Palindromes.Logic;
+﻿using Palindromes.Logic.Providers;
+using System;
 
 namespace CallPalindromes
 {
@@ -9,16 +9,13 @@ namespace CallPalindromes
         {
             var callPalindrom = new ForeachProvider();
 
-            for (int i = 0; i<args.Length; i++)
+            for (var i = 0; i < args.Length; i++)
             {
-                var palindromToCheck = callPalindrom.CheckString(args[i]);
+                var palindromeToCheck = callPalindrom.CheckString(args[i]);
 
-                if (palindromToCheck != true)
-                {
-                    Console.WriteLine(args[i] + ", " + palindromToCheck + " - Is not a palindrome");
-                }
-                else
-                    Console.WriteLine(args[i] + ", " + palindromToCheck + " - Is a palindrome");
+                Console.WriteLine(palindromeToCheck != true
+                    ? $"{args[i]}, {palindromeToCheck} is not a palindrome"
+                    : $"{args[i]}, {palindromeToCheck} is a palindrome");
 
                 Console.ReadLine();
             }

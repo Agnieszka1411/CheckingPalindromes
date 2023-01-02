@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Palindromes.Logic
+namespace Palindromes.Logic.Helpers
 {
-    public abstract class InvalidCharacters
+    public static class InvalidCharactersHelper
     {
-        private readonly string[] _invalidCharacters = new[] { " ", ".", ",", ";", "/", "\\" };
-        protected string GetCleanedString(string stringToClean)
+        private static readonly string[] _invalidCharacters = new[] { " ", ".", ",", ";", "/", "\\" };
+        public static string GetCleanedString(string stringToClean)
         {
             var result = stringToClean;
 

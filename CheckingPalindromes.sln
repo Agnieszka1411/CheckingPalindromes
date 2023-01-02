@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33027.164
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Palindromes.Logic", "Palindromes.Logic\Palindromes.Logic.csproj", "{1C6E1F53-E56A-4EEC-8A46-FEC2970FC6FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallPalindromes", "CallPalindromes\CallPalindromes.csproj", "{C4BBBE7F-4E75-4946-BCC4-4D1F70D3BF25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Palindromes.Console", "CallPalindromes\Palindromes.Console.csproj", "{C4BBBE7F-4E75-4946-BCC4-4D1F70D3BF25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
