@@ -1,6 +1,6 @@
 ﻿namespace Palindromes.Logic
 {
-    public class DoWhileProvider : BaseProvider
+    public class WhileProvider : BaseProvider
     {
         public override bool CheckString(string stringToCheck)
         {
@@ -11,7 +11,7 @@
             var index = cleanedString.Length - 1;
             var i = 0;
 
-            do
+            while (i <= index)
             {
                 if (cleanedString[i] == cleanedString[index])
                 {
@@ -23,7 +23,6 @@
                     return false;
                 }
             }
-            while (i <= index);
 
             return true;
         }
