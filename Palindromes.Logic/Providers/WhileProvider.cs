@@ -1,17 +1,20 @@
-﻿namespace Palindromes.Logic
+﻿using Palindromes.Logic.Helpers;
+using Palindromes.Logic.Providers.Interfaces;
+
+namespace Palindromes.Logic.Providers
 {
-    public class DoWhileProvider : BaseProvider
+    public class WhileProvider : IPalindormeProvider
     {
-        public override bool CheckString(string stringToCheck)
+        public bool CheckString(string stringToCheck)
         {
             if (string.IsNullOrWhiteSpace(stringToCheck))
                 return false;
 
-            var cleanedString = GetCleanedString(stringToCheck.ToLower());
+            var cleanedString = InvalidCharactersHelper.GetCleanedString(stringToCheck.ToLower());
             var index = cleanedString.Length - 1;
             var i = 0;
 
-            do
+            while (i <= index)
             {
                 if (cleanedString[i] == cleanedString[index])
                 {
@@ -23,7 +26,6 @@
                     return false;
                 }
             }
-            while (i <= index);
 
             return true;
         }
