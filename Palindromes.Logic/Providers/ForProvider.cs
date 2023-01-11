@@ -1,25 +1,21 @@
-﻿using Palindromes.Logic.Helpers;
-using Palindromes.Logic.Providers.Interfaces;
-
-namespace Palindromes.Logic.Providers
+﻿namespace Palindromes.Logic
 {
-    public class ForProvider : IPalindormeProvider
+    public class ForProvider : BaseProvider
     {
-        public bool CheckString(string stringToCheck)
+        public override bool CheckString(string stringToCheck)
         {
             if (string.IsNullOrWhiteSpace(stringToCheck))
                 return false;
 
-            var cleanedString = InvalidCharactersHelper.GetCleanedString(stringToCheck.ToLower());
+            var cleanedString = GetCleanedString(stringToCheck.ToLower());
             var index = cleanedString.Length - 1;
 
             for (var i = 0; i <= index; i++)
-            {
                 if (cleanedString[i] == cleanedString[index])
                     index--;
                 else
                     return false;
-            }
+
             return true;
         }
     }
