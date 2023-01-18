@@ -1,4 +1,4 @@
-﻿namespace Palindromes.Logic
+﻿namespace Palindromes.Logic.Providers
 {
     public class ForProvider : BaseProvider
     {

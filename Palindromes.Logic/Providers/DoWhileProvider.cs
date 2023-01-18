@@ -1,4 +1,4 @@
-﻿namespace Palindromes.Logic
+﻿namespace Palindromes.Logic.Providers
 {
     public class DoWhileProvider : BaseProvider
     {

@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Palindromes.Logic.Providers;
 
 namespace Palindromes.Logic.Tests
 {
@@ -15,6 +16,7 @@ namespace Palindromes.Logic.Tests
         [TestCase("Kobyła ma mały bok.", true)]
         [TestCase("kobyła ma mały bok", true)]
         public void CheckString_APalindromeData_ResultTrue(string userInput, bool expectedResult)
+
         {
             var actualResult = _doWhileProvider.CheckString(userInput);
 

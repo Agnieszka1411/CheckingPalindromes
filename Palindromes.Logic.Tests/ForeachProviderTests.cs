@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Palindromes.Logic.Providers;
 
 namespace Palindromes.Logic.Tests
 {

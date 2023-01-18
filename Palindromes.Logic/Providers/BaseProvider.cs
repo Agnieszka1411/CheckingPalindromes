@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Palindromes.Logic
+namespace Palindromes.Logic.Providers
 {
     public abstract class BaseProvider
     {

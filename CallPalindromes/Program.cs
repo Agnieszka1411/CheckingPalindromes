@@ -7,7 +7,7 @@ namespace CallPalindromes
     {
         static void Main(string[] args)
         {
-            var callPalindrom = new ForeachProvider();
+            var callPalindrom = new ForProvider();
 
             for (var i = 0; i < args.Length; i++)
             {
