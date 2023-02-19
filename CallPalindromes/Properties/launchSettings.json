@@ -1,8 +1,7 @@
 {
   "profiles": {
     "CallPalindromes": {
-      "commandName": "Project",
-      "commandLineArgs": "\"lala\" null \"\" \"kobyła ma mały bok\" \"Kobyła ma mały bok.\""
+      "commandName": "Project"
     }
   }
 }
