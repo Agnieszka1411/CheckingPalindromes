@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Palindromes.Logic\Palindromes.Logic.Providers.csproj" />
+  </ItemGroup>
+
 
 </Project>

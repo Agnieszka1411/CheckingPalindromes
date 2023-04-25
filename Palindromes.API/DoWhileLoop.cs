@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Palindromes.API
 {
-    public class CheckPalindromes
+    public class DoWhileLoop
     {
-        public string PalindromesString { get; set; }
+        public string PalindromesInput { get; set; }
+        public bool IsPalindrome { get; set; }
     }
 }
