@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Palindromes.Logic\Palindromes.Logic.Providers.csproj" />
+    <ProjectReference Include="..\Palindromes.Logic\Palindromes.Logic.csproj" />
   </ItemGroup>
 
 </Project>
