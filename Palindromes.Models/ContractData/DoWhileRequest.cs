@@ -17,5 +17,8 @@ namespace Palindromes.Models.ContractData
             return StringToCheck;
         }
 
+     
+
+
     }
 }

@@ -10,5 +10,11 @@ namespace Palindromes.Models.ContractData
     {
         public bool Result { get; set; }
         public string Message { get; set; }
+
+        public string Key { get; set; }
+        public string Value { get; set; }
+
+        public List<string> PalindormeList { get; set; }
+
     }
 }
