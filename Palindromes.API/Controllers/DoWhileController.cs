@@ -2,10 +2,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Palindromes.Logic.Providers;
 using Palindromes.Models.ContractData;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Xml.Linq;
 
 namespace Palindromes.API.Controllers
 {
@@ -15,6 +21,8 @@ namespace Palindromes.API.Controllers
     {
         private Dictionary<string, string> palindromeList = new Dictionary<string, string>();
         private DictionaryDoWhileResponse<string, string> dictionaryList = new DictionaryDoWhileResponse<string, string>();
+        private List<String> filledPalindromesList = new List<string> { "Kobyła ma mały bok.", "oko", "kobyła ma mały bok", "dupa" };
+        private Dictionary<string, List<string>> palindromesDict = new Dictionary<string, List<string>>();
 
         [HttpGet]
         [Route("/DoWhileController")]
@@ -59,24 +67,29 @@ namespace Palindromes.API.Controllers
         {
             List<string> list = new List<string>();
             list.Add(request.StringToCheck);
-             return list;
+            return list;
 
         }
 
         [HttpPost]
         [Route("/DoWhileController/PostReturningDictionary")]
-        public Dictionary <string, string> AddPalindormeToDictionary([FromBody] DoWhileRequest request)
+        public Dictionary<string, List<string>> AddPalindormeToDictionary([FromBody] DoWhileRequest request)
         {
-                var name = "Name";
-                palindromeList.Add(name, request.StringToCheck);
-
-                return palindromeList;
+            var name = "Name";
+            if (palindromesDict.ContainsKey(name)) //sprawdzamy czy klucz już istnieje
+            {
+                palindromesDict[name].Add(request.StringToCheck); // jeśli istnieje, to dodaj nową wartość do listy. [Name] zapis słownikowy przez indeks.
+            }
+            else
+            {
+                palindromesDict.Add(name, new List<string>() { request.StringToCheck }); //jeżeli nie istnieje, to dodaj, ale zainicjuj listę
+            }
+            return palindromesDict;
         }
-
 
         [HttpPost]
         [Route("/DoWhileController/PostReturningDictionaryv2")]
-        public DictionaryDoWhileResponse <string, string> AddPalindormeToDictionaryv2([FromBody] DoWhileRequest request)
+        public DictionaryDoWhileResponse<string, string> AddPalindormeToDictionaryv2([FromBody] DoWhileRequest request)
         {
             foreach (var item in palindromeList)
             {
@@ -87,19 +100,40 @@ namespace Palindromes.API.Controllers
         }
 
 
+        [HttpGet]
+        [Route("/DoWhileController/GetPalindromesList")]
+        public IEnumerable<string> GetPalindromesList()
+        {
+            return filledPalindromesList;
+        }
+
+        //[HttpGet]
+        //[Route("/DoWhileController/GetPalindromesList/{id}")]
+        //public List<string> GetPalindromesListById(int id)
+        //{
+        //    DoWhileResponseById doWhileResponse = new DoWhileResponseById();
+
+        //    doWhileResponse.Id = id;
+        //    //var test = filledPalindromesList.Where(p => doWhileResponse.Id == id);
+        //    //return test.ToList();
+
+
+        //}
+
     }
+
 }
 
 
-        //[Route("/DoWhileController/PostReturningDictionary")]
-        //public List<string> AddPalindormeToList([FromBody] DoWhileRequest request)
-        //{
-        //    List<string> list = new List<string>();
-        //    list.Add(request.StringToCheck);
+//[Route("/DoWhileController/PostReturningDictionary")]
+//public List<string> AddPalindormeToList([FromBody] DoWhileRequest request)
+//{
+//    List<string> list = new List<string>();
+//    list.Add(request.StringToCheck);
 
-        //    return list;
+//    return list;
 
-        //}
+//}
 
 
 
